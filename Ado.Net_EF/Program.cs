@@ -29,15 +29,17 @@ namespace Ado.Net_EF
             //CreateStudent();
             #endregion
 
+            #region EntityFramework
             //createStudentEF();
             //getStudentEF();
             //getStudentsEF();
 
             //updateStudentEF();
 
-            Student stu = deleteStudentEF();
-            createDeletedStudentEF(stu);
+            //Student stu = deleteStudentEF();
+            //createDeletedStudentEF(stu);
             //Console.WriteLine(stu);
+            #endregion
 
         }
 
@@ -111,6 +113,7 @@ namespace Ado.Net_EF
         //}
         #endregion
 
+        #region EntityFramework
         public static void createStudentEF()
         {
             using (AppDbContext context = new AppDbContext())
@@ -168,14 +171,14 @@ namespace Ado.Net_EF
         {
             using (AppDbContext context = new AppDbContext())
             {
-                Student student = context.Students.FirstOrDefault(s=>s.Id == 1);
+                Student student = context.Students.FirstOrDefault(s => s.Id == 1);
 
-                if(student != null)
+                if (student != null)
                 {
                     student.Surname = "Yusubov";
                     context.SaveChanges();
                 }
-                
+
             }
         }
 
@@ -185,7 +188,7 @@ namespace Ado.Net_EF
             {
                 Student student = context.Students.Find(4);
 
-                if(student != null)
+                if (student != null)
                 {
                     context.Students.Remove(student);
                     context.SaveChanges();
@@ -193,6 +196,6 @@ namespace Ado.Net_EF
                 return student;
             }
         }
-
+        #endregion
     }
 }
